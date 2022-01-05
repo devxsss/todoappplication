@@ -1,0 +1,39 @@
+#header {
+  height: 68px;
+  background-color: lightblue;
+  display: flex;
+}
+
+.appWrapper span {
+  height: 68px;
+  line-height: 68px;
+  margin-left: 30px;
+}
+
+.addNew {
+  height: 68px;
+  line-height: 68px;
+  margin-left: 90%;
+  color: black;
+  cursor: pointer;
+}
+
+.addNewArea {
+  padding-top: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.74);
+  z-index: 100;
+}
+
+.inputArea {
+  margin: 0 auto;
+  height: 360px;
+  width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 100px 30px30px;
+}
