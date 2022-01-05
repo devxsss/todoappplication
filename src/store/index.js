@@ -5,31 +5,32 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    task:{
     taskName:'',
     taskDate:'',
     taskImportance:'',
+    },
   },
   mutations: {
     setTaskName(state,taskName){
-      state.taskName= taskName
+      state.task.taskName= taskName
     },
     setTaskDate(state,taskDate){
-      state.taskDame= taskDate
+      state.task.taskDame= taskDate
     },
-    setTaskName(state,taskImportance){
-      state.taskImportance= taskImportance
+    setTaskImportance(state,taskImportance){
+      state.task.taskImportance= taskImportance
     }
   },
   actions: {
-    setTaskName(state,taskName){
-      state.taskName= taskName
+    setTaskName({commit},taskName){
+      commit('setTaskName', taskName)
     },
-    setTaskDate(state,taskDate){
-      state.taskDame= taskDate
+    setTaskName({commit},taskDate){
+      commit('setTaskDate', taskDate)
     },
-    setTaskName(state,taskImportance){
-      state.taskImportance= taskImportance
+    setTaskName({commit},taskImportance){
+      commit('setTaskImportance', taskImportance)
     }
   },
-  modules: {},
 });
