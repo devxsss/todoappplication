@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Header from './components/Header.vue';
+import Header from "./components/Header.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
   },
@@ -22,5 +22,5 @@ export default {
 </script>
 
 <style>
-@import 'assets/style.css';
+@import "assets/style.css";
 </style>

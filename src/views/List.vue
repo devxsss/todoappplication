@@ -1,8 +1,8 @@
 <template>
-  <div class="todo">
+  <div class="list">
     <form class="row g-3">
       <div class="col-auto">
-        <label for="staticEmail2" class="visually-hidden">タスク名 </label>
+        <label for="staticEmail2" class="visually-hidden">Email</label>
         <input
           type="text"
           readonly
@@ -12,21 +12,13 @@
         />
       </div>
       <div class="col-auto">
-        <label for="inputPassword2" class="visually-hidden">期限</label>
+        <label for="inputPassword2" class="visually-hidden">Password</label>
         <input
-          type="date"
+          type="password"
           class="form-control"
           id="inputPassword2"
-          placeholder="today"
+          placeholder="Password"
         />
-      </div>
-      <div class="col-auto">
-        <label for="importance" class="visually-hidden">重要度</label>
-        <select>
-          <option value="1">高</option>
-          <option value="2">中</option>
-          <option value="3">低</option>
-        </select>
       </div>
       <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">
@@ -39,7 +31,7 @@
 
 <script>
 export default {
-  name: "Todo",
+  name: "List",
   props: {
     msg: String,
   },
