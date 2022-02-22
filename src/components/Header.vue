@@ -1,7 +1,7 @@
 <template>
   <div id="header">
     <div class="appWrapper">
-      <span>Todo App</span>
+      <span>TodoApp</span>
     </div>
     <div class="addNew">
       <b-row>
