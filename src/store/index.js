@@ -5,11 +5,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    task:{
+    task:[{
     taskName:'',
     taskDate:'',
     taskImportance:'',
-    },
+    }],
   },
   mutations: {
     setTaskName(state,taskName){
@@ -26,10 +26,10 @@ export default new Vuex.Store({
     setTaskName({commit},taskName){
       commit('setTaskName', taskName)
     },
-    setTaskName({commit},taskDate){
+    setTaskDate({commit},taskDate){
       commit('setTaskDate', taskDate)
     },
-    setTaskName({commit},taskImportance){
+    setTaskImportance({commit},taskImportance){
       commit('setTaskImportance', taskImportance)
     }
   },

@@ -3,8 +3,8 @@
     <Header></Header>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/todo">Todo</router-link>
+      <router-link to="/AddNewTask">AddNewTask</router-link> |
+      <router-link to="/TaskList">TaskList</router-link>
     </div>
     <router-view />
   </div>
