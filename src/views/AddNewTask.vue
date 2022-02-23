@@ -14,11 +14,11 @@
     </div>
     <div>
       <div>重要度</div>
-        <div>
-        <select @select="addTaskImportance">
-          <option value="1">高</option>
-          <option value="2">中</option>
-          <option value="3">低</option>
+      <div>
+        <select @change="addTaskImportance">
+          <option value="高">高</option>
+          <option value="中">中</option>
+          <option value="低">低</option>
         </select>
       </div>
     </div>
@@ -42,6 +42,7 @@ export default {
     return {
       taskName: "",
       taskDate: "",
+      taskImportance: "高",
     };
   },
   methods: {
@@ -51,17 +52,34 @@ export default {
     addTaskDate(value) {
       this.taskDate = value;
     },
+    addTaskImportance(value) {
+      this.taskImportance = value;
+    },
     addTask() {
       if (this.taskName == "" || this.taskDate == "") {
         return;
       }
-      this.$store.dispatch("setTaskName", this.taskName);
-      this.$store.dispatch("setTaskDate", this.taskDate);
-      console.log(this.taskImportance);
-      this.$store.dispatch("setTaskImportance", this.taskImportance);
+      let tasks = [];
+      const newTask = {
+        taskName: this.taskName,
+        taskDate: this.taskDate,
+        taskImportance: this.taskImportance,
+      };
+      if (this.$store.state.tasks[0].taskName != "") {
+        this.$store.state.tasks.forEach((item) => {
+          const taskItem = {
+            taskName: item.taskName,
+            taskDate: item.taskDate,
+            taskImportance: item.taskImportance,
+          };
+          tasks.push(taskItem);
+        });
+      }
+      tasks.push(newTask);
+      this.$store.dispatch("setTask", tasks);
       this.taskName = "";
       this.taskDate = "";
-      this.taskImportance = "";
+      this.taskImportance = "高";
     },
   },
 };

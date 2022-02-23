@@ -20,6 +20,7 @@ const routes = [
     path: "/TaskList",
     name: "TaskList",
     component: () => import("../views/TaskList.vue"),
+    proprs: true,
   },
 ];
 
