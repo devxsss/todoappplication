@@ -41,3 +41,12 @@
 html {
   font-size: 100%;
 }
+
+.topnav .vs {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.topnav {
+  display: flex;
+}

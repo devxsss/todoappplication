@@ -11,30 +11,36 @@
         <label for="staticEmail2" class="visually-hidden">重要度</label>
       </div>
     </form>
-    <div v-for="(task, index) in Tasks" :key="index" class="row g-5">
-      <div class="col-auto">
+    <div v-for="(task, index) in Tasks" :key="index" class="row g-5 topnav">
+      <div class="col-auto vs">
         <label for="staticEmail2" class="visually-hidden">
-          {{ task.taskName }}
+          {{ task.taskName }}&emsp;
         </label>
       </div>
-      <div class="col-auto">
+      <div class="col-auto vs">
         <label for="staticEmail2" class="visually-hidden">
-          {{ task.taskDate }}</label
+          {{ task.taskDate }}&emsp;</label
         >
       </div>
-      <div class="col-auto">
+      <div class="col-auto vs">
         <label for="staticEmail2" class="visually-hidden">
-          {{ task.taskImportance }}</label
+          {{ task.taskImportance }}&emsp;</label
         >
       </div>
-      <div v-if="status == true" class="col-auto">
+      <div v-if="status === false" class="col-auto">
         <button class="btn btn-xs btn-info" @click="goToAddNewTask(task)">
-          <span class="glyphicon glyphicon-pencil"></span>
+          <span
+            style="font-size: 12px"
+            class="glyphicon glyphicon-pencil"
+          ></span>
         </button>
       </div>
-      <div v-if="status == true" class="col-auto">
+      <div v-if="status === false" class="col-auto">
         <button class="btn btn-xs btn-warning" v-on:click="removeTask(task)">
-          <span class="glyphicon glyphicon-trash"></span>
+          <span
+            style="font-size: 12px"
+            class="glyphicon glyphicon-trash"
+          ></span>
         </button>
       </div>
     </div>
@@ -53,16 +59,19 @@ export default {
       return this.editIndex === -1 ? '追加' : '編集';
     },
     status: function () {
+      let status = false;
       const allTask = JSON.parse(JSON.stringify(this.$store.state.tasks));
       if (
-        allTask.taskName === '' &&
-        allTask.taskDate === '' &&
-        allTask.taskImportance === '' &&
+        allTask[0].taskName === '' &&
+        allTask[0].taskDate === '' &&
+        allTask[0].taskImportance === '' &&
         allTask.length === 1
       ) {
-        return true;
+        status = true;
+        console.log(status);
+        return status;
       }
-      return false;
+      return status;
     },
   },
   methods: {
