@@ -95,7 +95,7 @@ export default {
         const editTask = {
           taskName: this.taskName,
           taskDate: this.taskDate,
-          taskImportance: this.$route.params.changeTask.taskImportance,
+          taskImportance: this.taskImportance,
         };
         this.$store.state.tasks.forEach((item) => {
           const taskItem = {
@@ -105,13 +105,9 @@ export default {
           };
           tasks.push(taskItem);
         });
-        console.log(tasks[0]);
         tasks[this.editIndex] = editTask;
         this.$store.dispatch('editTask', tasks);
       }
-      this.taskName = '';
-      this.taskDate = '';
-      this.taskImportance = '高';
     },
   },
 };
