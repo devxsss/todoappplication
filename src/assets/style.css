@@ -37,3 +37,7 @@
   border-radius: 10px;
   padding: 100px 30px30px;
 }
+
+html {
+  font-size: 100%;
+}

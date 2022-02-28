@@ -27,12 +27,12 @@
           {{ task.taskImportance }}</label
         >
       </div>
-      <div v-if="Tasks.length" class="col-auto">
+      <div v-if="status == true" class="col-auto">
         <button class="btn btn-xs btn-info" @click="goToAddNewTask(task)">
           <span class="glyphicon glyphicon-pencil"></span>
         </button>
       </div>
-      <div v-if="Tasks.length" class="col-auto">
+      <div v-if="status == true" class="col-auto">
         <button class="btn btn-xs btn-warning" v-on:click="removeTask(task)">
           <span class="glyphicon glyphicon-trash"></span>
         </button>
@@ -46,10 +46,23 @@ export default {
   computed: {
     Tasks() {
       const allTask = JSON.parse(JSON.stringify(this.$store.state.tasks));
+      console.log(allTask);
       return allTask;
     },
     changeButtonText() {
       return this.editIndex === -1 ? '追加' : '編集';
+    },
+    status: function () {
+      const allTask = JSON.parse(JSON.stringify(this.$store.state.tasks));
+      if (
+        allTask.taskName === '' &&
+        allTask.taskDate === '' &&
+        allTask.taskImportance === '' &&
+        allTask.length === 1
+      ) {
+        return true;
+      }
+      return false;
     },
   },
   methods: {
